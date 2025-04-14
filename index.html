@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Підбір фільтрів TESMA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TESMA Підбір фільтрів</title>
 </head>
 <body>
   <h1>Вітаємо на сайті підбору фільтрів TESMA</h1>
-  <p>Скоро тут буде сервіс підбору фільтрів по артикулу або моделі.</p>
+  <p>Введіть артикул або модель техніки для пошуку:</p>
+
+  <form id="filterForm">
+    <input type="text" id="query" placeholder="Наприклад: JX0810Y" required />
+    <button type="submit">Пошук</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById("filterForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const query = document.getElementById("query").value.trim();
+      document.getElementById("result").innerHTML = "Йде пошук для: <strong>" + query + "</strong>...";
+    });
+  </script>
 </body>
 </html>
